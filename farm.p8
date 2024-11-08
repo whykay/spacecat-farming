@@ -52,7 +52,7 @@ function uplr()
 	local pty	= (plr.y+8)/8
 	
 	if btn(❎) then
-		mset(ptx, pty, 2) 
+		mset(ptx, pty, 3) 
 		
 	end
 end
