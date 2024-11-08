@@ -64,8 +64,8 @@ function uplr()
 	
 		if fget(mget(ptx, pty), 1) then 
 			--plant seeds on blank tiles
-			if seed_cnt > 0 then
-				seed_cnt -= 1
+			if seeds > 0 then
+				seeds -= 1
 				mset(ptx, pty, 3)
 				add(patches, {
 						sx = flr(ptx),
@@ -138,7 +138,7 @@ end
 
 function iinv()
 	inv = {}
-	seed_cnt = 9
+	seeds = 9
 	carrots = 0
 end
 
@@ -149,7 +149,7 @@ end
 function dinv()
 	--seeds inventory
 	spr(19, 84, 2)
-	print(seed_cnt, 94, 3, 1)
+	print(seeds, 94, 3, 1)
 	
 	--carrots
 	spr(18, 104, 2)
@@ -158,8 +158,7 @@ end
 
 function harvest()
 	carrots += 1
-	seed_cnt += 2
-	--add(inv, 18) --carrot
+	seeds += flr(rnd(4))
 end
 __gfx__
 000000000000000004444440044444400444444004444440000000000000000000000000000000000000000000000000000d600000066000000660000006d000
