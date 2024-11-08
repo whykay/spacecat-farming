@@ -166,7 +166,7 @@ end
 
 function harvest()
 	carrots += 1
-	seed_cnt += 1
+	seed_cnt += 2
 	--add(inv, 18) --carrot
 end
 __gfx__
