@@ -4,10 +4,6 @@ __lua__
 --super simple farming game--
 
 -- goals
--- ❎ player that can move
--- ❎ plant seeds
--- ❎ crops grow
--- 4. harvest crops
 
 function _init()
 	iplr()
@@ -28,11 +24,6 @@ function _draw()
 	dplr()
 	dcrops()
 	dinv()
-	
-	for s in all(seeds) do
-	
-		--print(s.sx, 1)
-	end
 end
 
 -->8
@@ -76,7 +67,7 @@ function uplr()
 			if seed_cnt > 0 then
 				seed_cnt -= 1
 				mset(ptx, pty, 3)
-				add(seeds, {
+				add(patches, {
 						sx = flr(ptx),
 						sy = flr(pty),
 						watered = false,
@@ -84,22 +75,21 @@ function uplr()
 				})
 				
 			end
-		elseif mget(ptx, pty) ==  3) then
+		elseif mget(ptx, pty) ==  3 then
 			--water seeds
 			mset(ptx, pty, 5)
-			harvest()
-			for s in all(seeds) do
-				if s.sx == flr(ptx) and s.sy == flr(pty) then
-					s.watered = true
+			for p in all(patches) do
+				if p.sx == flr(ptx) and p.sy == flr(pty) then
+					p.watered = true
 				end --endif
 			end --endfor
 		elseif fget(mget(ptx, pty), 2) then
 			--collect a carrot
 			mset(ptx, pty, 0)
 			harvest()
-			for s in all(seeds) do
-				if s.sx == flr(ptx) and s.sy == flr(pty) then
-					del(seeds, s)
+			for p in all(patches) do
+				if p.sx == flr(ptx) and p.sy == flr(pty) then
+					del(patches, p)
 				end --end-if
 			end --end-for
 		end --end-if
@@ -113,31 +103,23 @@ end
 --nature's way--
 
 function icrops()
-	croptimer = 300 --frames
-	seeds = {}
+	patches = {}
 end
 
-function ucrops()
---	if croptimer > 0 then
---		croptimer -= 1
---	else
---		growcrops()
---		croptimer = 300
---	end
-	
-	for s in all(seeds) do
-		if s.watered then
-			s.tig += 1
+function ucrops()	
+	for p in all(patches) do
+		if p.watered then
+			p.tig += 1
 		end
-		if s.tig > 300 then
-			mset(s.sx, s.sy, 4) --grow carrot
+		if p.tig > 300 then
+			mset(p.sx, p.sy, 4) --grow carrot
 		end
 	end
 	
 end
 
 function dcrops()
-	print(croptimer)
+
 end
 
 function growcrops()
