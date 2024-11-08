@@ -4,17 +4,19 @@ __lua__
 --super simple farming game--
 
 -- goals
--- 1. player that can move
--- 2. plant seeds
+-- ❎ player that can move
+-- ❎ plant seeds
 -- 3. crops grow
 -- 4. harvest crops
 
 function _init()
 	iplr()
+	icrops()
 end
 
 function _update()
 	uplr()
+	ucrops()
 end
 
 function _draw()
@@ -22,6 +24,7 @@ function _draw()
 	map()
 	
 	dplr()
+	dcrops()
 end
 
 -->8
@@ -53,13 +56,57 @@ function uplr()
 	
 	if btn(❎) then
 		mset(ptx, pty, 3) 
-		
+		add(seeds, {
+				sx = ptx,
+				sy = pty,
+				tig = 0 --time in ground
+		})
 	end
 end
 
 function dplr()
 	spr(12, plr.x, plr.y)
 end 
+-->8
+--nature's way--
+
+function icrops()
+	croptimer = 300 --frames
+	seeds = {}
+end
+
+function ucrops()
+--	if croptimer > 0 then
+--		croptimer -= 1
+--	else
+--		growcrops()
+--		croptimer = 300
+--	end
+	
+	for s in all(seeds) do
+		s.tig += 1
+		if s.tig > 300 then
+			mset(s.sx, s.sy, 4) --grow carrot
+		end
+	end
+	
+end
+
+function dcrops()
+	print(croptimer)
+end
+
+function growcrops()
+	--loop through all tiles on map
+	--change tiles 3 -> 4 
+	for x=0,15 do
+		for y =0, 15 do
+			if mget(x, y) == 3 then
+				mset(x, y, 4) --grow carrot
+			end
+		end
+	end
+end
 __gfx__
 000000000000000004444440044444400444444000000000000000000000000000000000000000000000000000000000000d6000000000000000000000000000
 00000000000000004424444444244444444b4b440000000000000000000000000000000000000000000000000000000000cd6c00000000000000000000000000
