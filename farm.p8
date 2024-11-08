@@ -72,12 +72,17 @@ function uplr()
 	if btnp(❎) then
 	
 		if fget(mget(ptx, pty), 1) then 
-			mset(ptx, pty, 3)
-			add(seeds, {
-					sx = flr(ptx),
-					sy = flr(pty),
-					tig = 0 --time in ground
-			})
+			--plant seeds on blank tiles
+			if seed_cnt > 0 then
+				seed_cnt -= 1
+				mset(ptx, pty, 3)
+				add(seeds, {
+						sx = flr(ptx),
+						sy = flr(pty),
+						tig = 0 --time in ground
+				})
+				
+			end
 		elseif fget(mget(ptx, pty), 2) then
 			--collect a carrot
 			mset(ptx, pty, 0)
@@ -141,6 +146,7 @@ end
 
 function iinv()
 	inv = {}
+	seed_cnt = 9
 	carrots = 0
 end
 
@@ -149,6 +155,11 @@ function uinv()
 end
 
 function dinv()
+	--seeds inventory
+	spr(19, 84, 2)
+	print(seed_cnt, 94, 3, 1)
+	
+	--carrots
 	spr(18, 104, 2)
 	print(carrots, 114, 3, 1)
 end
