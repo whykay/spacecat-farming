@@ -109,10 +109,12 @@ function uplr()
 		end --endif-fget
 	end --end-btnp
 	
-	--sell seeds
+	--sell carrots
 	if btnp(🅾️) then
-		seeds -= 1
-		coins += 1
+		if carrots > 0 then
+			carrots -= 1
+			coins += 1
+		end
 	end
 end
 
