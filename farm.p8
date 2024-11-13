@@ -109,6 +109,7 @@ function dplr()
 end 
 
 
+--check collision - flag 0
 function collide()
 	local ptx1 = (plr.x+3)/8
 	local ptx2 = (plr.x+4)/8
