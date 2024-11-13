@@ -108,6 +108,12 @@ function uplr()
 			end --endif-coins
 		end --endif-fget
 	end --end-btnp
+	
+	--sell seeds
+	if btnp(🅾️) then
+		seeds -= 1
+		coins += 1
+	end
 end
 
 function dplr()
