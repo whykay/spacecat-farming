@@ -113,7 +113,7 @@ function uplr()
 	if btnp(🅾️) then
 		if carrots > 0 then
 			carrots -= 1
-			coins += 1
+			coins += 2
 		end
 	end
 end
