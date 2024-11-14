@@ -109,13 +109,13 @@ function uplr()
 		end --endif-fget
 	end --end-btnp
 	
-	--sell carrots
-	if btnp(🅾️) then
-		if carrots > 0 then
-			carrots -= 1
-			coins += 2
-		end
-	end
+--	--sell carrots
+--	if btnp(🅾️) then
+--		if carrots > 0 then
+--			carrots -= 1
+--			coins += 2
+--		end
+--	end
 end
 
 function dplr()
@@ -173,9 +173,7 @@ end
 --inventory--
 
 function iinv()
-	--coins = 5
-	--seeds = 9
-	--carrots = 0
+	sel = 1
 	inv = {}
 	add(inv, {
 		name = "gold",
@@ -198,7 +196,10 @@ function iinv()
 end
 
 function uinv()
-	
+	--move selection box
+	if btnp(🅾️) then
+		sel += 1
+	end
 end
 
 function dinv()
@@ -222,7 +223,7 @@ function dinv()
 		spr(inv[i].sp, 22+9*i, 117)
 	end
 	
-	rect(30, 116, 39, 125, 7)
+	rect(21+sel*9, 116, 30+sel*9, 125, 7)
 end
 
 function harvest()
