@@ -196,13 +196,14 @@ function dinv()
 	spr(18, 104, 2)
 	print(carrots, 114, 3, 1)
 	
-	rectfill(30, 115, 98, 125, 4)
+	rectfill(30, 115, 99, 125, 4)
 	spr(18, 31, 117) --carrot
 	spr(19, 41, 117)	--seed
 	spr(18, 51, 117) --carrot
 	spr(19, 61, 117)	--seed
 	spr(18, 71, 117) --carrot
 	spr(19, 81, 117)	--seed
+	spr(18, 91, 117) --carrot
 end
 
 function harvest()
