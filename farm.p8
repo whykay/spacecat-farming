@@ -182,6 +182,11 @@ function iinv()
 		amt = 10,
 		sp = 17
 	})
+	add(inv, {
+		name = "carrots",
+		amt = 0,
+		sp = 18
+	})
 end
 
 function uinv()
@@ -206,7 +211,7 @@ function dinv()
 	
 	--go thro inventory
 	for i=1, #inv do
-		spr(inv[1].sp, 22+9*i, 117)
+		spr(inv[i].sp, 22+9*i, 117)
 	end
 end
 
