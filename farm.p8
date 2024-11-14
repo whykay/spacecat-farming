@@ -47,19 +47,21 @@ function uplr()
 	local ly = plr.y
 	
 	--movement
-	if btn(➡️) then
-		plr.x += 1
-		plr.sp = 14
-	elseif btn(⬅️) then
-		plr.x -= 1
-		plr.sp = 13
-	elseif btn(⬆️) then
-		plr.y -= 1
-		plr.sp = 15
-	elseif btn(⬇️) then
-		plr.y += 1
-		plr.sp = 12
-	end --endif
+	if not menutoggle then
+		if btn(➡️) then
+			plr.x += 1
+			plr.sp = 14
+		elseif btn(⬅️) then
+			plr.x -= 1
+			plr.sp = 13
+		elseif btn(⬆️) then
+			plr.y -= 1
+			plr.sp = 15
+		elseif btn(⬇️) then
+			plr.y += 1
+			plr.sp = 12
+		end --endif-btn
+	end
 	
 	--chk if player collides
 	if collide() then
