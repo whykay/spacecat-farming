@@ -195,11 +195,6 @@ function iinv()
 		sp = 19
 	})
 	
-	add(inv, {
-		name = "seeds",
-		amt = 4,
-		sp = 19
-	})
 end
 
 function uinv()
