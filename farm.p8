@@ -203,24 +203,11 @@ function uinv()
 		else
 			sel = 1
 		end
-	end
+	end --end-btnp
 end
 
 function dinv()
-	--coin
-	--spr(17, 64, 2)
-	--print(coins, 74 , 3, 1)
-
-	--seeds inventory
-	--spr(19, 84, 2)
-	--print(seeds, 94, 3, 1)
-	
-	--carrots
-	--spr(18, 104, 2)
-	--print(carrots, 114, 3, 1)
-	
 	rectfill(30, 116, 99, 125, 4)
-	
 	
 	--go thro inventory
 	for i=1, #inv do
