@@ -173,10 +173,15 @@ end
 --inventory--
 
 function iinv()
+	--coins = 5
+	--seeds = 9
+	--carrots = 0
 	inv = {}
-	coins = 5
-	seeds = 9
-	carrots = 0
+	add(inv, {
+		name = "gold",
+		amt = 10,
+		sp = 17
+	})
 end
 
 function uinv()
@@ -185,26 +190,24 @@ end
 
 function dinv()
 	--coin
-	spr(17, 64, 2)
-	print(coins, 74 , 3, 1)
+	--spr(17, 64, 2)
+	--print(coins, 74 , 3, 1)
 
 	--seeds inventory
-	spr(19, 84, 2)
-	print(seeds, 94, 3, 1)
+	--spr(19, 84, 2)
+	--print(seeds, 94, 3, 1)
 	
 	--carrots
-	spr(18, 104, 2)
-	print(carrots, 114, 3, 1)
+	--spr(18, 104, 2)
+	--print(carrots, 114, 3, 1)
 	
 	rectfill(30, 115, 99, 125, 4)
-	spr(18, 31, 117) --carrot
-	spr(19, 41, 117)	--seed
-	spr(18, 51, 117) --carrot
-	spr(19, 61, 117)	--seed
-	spr(18, 71, 117) --carrot
-	spr(19, 81, 117)	--seed
-	spr(18, 91, 117) --carrot
-	rect(40, 116, 50, 125, 10)
+	--rect(40, 116, 50, 125, 10)
+	
+	--go thro inventory
+	for i=1, #inv do
+		spr(inv[1].sp, 22+9*i, 117)
+	end
 end
 
 function harvest()
