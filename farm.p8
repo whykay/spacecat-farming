@@ -182,10 +182,23 @@ function iinv()
 		amt = 10,
 		sp = 17
 	})
+	
 	add(inv, {
 		name = "carrots",
 		amt = 0,
 		sp = 18
+	})
+	
+	add(inv, {
+		name = "seeds",
+		amt = 4,
+		sp = 19
+	})
+	
+	add(inv, {
+		name = "seeds",
+		amt = 4,
+		sp = 19
 	})
 end
 
