@@ -198,7 +198,11 @@ end
 function uinv()
 	--move selection box
 	if btnp(🅾️) then
-		sel += 1
+		if sel < #inv then
+			sel += 1
+		else
+			sel = 1
+		end
 	end
 end
 
