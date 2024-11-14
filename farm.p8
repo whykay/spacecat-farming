@@ -72,8 +72,9 @@ function uplr()
 	
 		if fget(mget(ptx, pty), 6) then 
 			--plant seeds on blank tiles
-			if seeds > 0 then
-				seeds -= 1
+			--if seeds > 0 then
+			if inv[sel].name == "seeds" then
+				--seeds -= 1
 				mset(ptx, pty, 3)
 				add(patches, {
 						sx = flr(ptx),
@@ -215,6 +216,8 @@ function dinv()
 	end
 	
 	rect(21+sel*9, 116, 30+sel*9, 125, 7)
+
+	print(inv[sel].name, 63, 73, 7)
 end
 
 function harvest()
