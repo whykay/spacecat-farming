@@ -214,13 +214,15 @@ function dinv()
 	--spr(18, 104, 2)
 	--print(carrots, 114, 3, 1)
 	
-	rectfill(30, 115, 99, 125, 4)
-	--rect(40, 116, 50, 125, 10)
+	rectfill(30, 116, 99, 125, 4)
+	
 	
 	--go thro inventory
 	for i=1, #inv do
 		spr(inv[i].sp, 22+9*i, 117)
 	end
+	
+	rect(30, 116, 39, 125, 7)
 end
 
 function harvest()
