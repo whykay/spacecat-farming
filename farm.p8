@@ -74,15 +74,18 @@ function uplr()
 			--plant seeds on blank tiles
 			--if seeds > 0 then
 			if inv[sel].name == "seeds" then
-				--seeds -= 1
-				mset(ptx, pty, 3)
-				add(patches, {
-						sx = flr(ptx),
-						sy = flr(pty),
-						watered = false,
-						tig = 0 --time in ground
-				})
-				
+				if inv[sel].amt > 0 then
+					--seeds -= 1
+					inv[sel].amt -= 1
+					
+					mset(ptx, pty, 3)
+					add(patches, {
+							sx = flr(ptx),
+							sy = flr(pty),
+							watered = false,
+							tig = 0 --time in ground
+					})
+				end
 			end
 		elseif mget(ptx, pty) ==  3 then
 			--water seeds
@@ -218,11 +221,17 @@ function dinv()
 	rect(21+sel*9, 116, 30+sel*9, 125, 7)
 
 	print(inv[sel].name, 63, 73, 7)
+	print(inv[sel].amt, 63, 83, 7)
 end
 
 function harvest()
-	carrots += 1
-	seeds += flr(rnd(4))
+	--carrots += 1
+	--seeds += flr(rnd(4))
+	for i in all(inv) do
+		if i.name == "carrots" then
+			i.amt += 1
+		end
+	end
 end
 __gfx__
 000000000000000004444440044444400444444004444440000000000000000000000000000000000000000000000000000d600000066000000660000006d000
