@@ -108,11 +108,12 @@ function uplr()
 				end --end-if
 			end --end-for
 		elseif fget(mget(ptx, pty), 2) then
-		--spend gold
-			if coins > 0 then
-				seeds += 1
-				coins -= 1
-			end --endif-coins
+			--if on stall tiles
+			if menutoggle == false then
+				menutoggle = true
+		 else
+		 	menutoggle = false
+		 end
 		end --endif-fget
 	end --end-btnp
 	
@@ -241,6 +242,8 @@ end
 
 function imenu()
 	menutable = {"buy", "sell"}
+	menusel = 1
+	menutoggle = false
 end
 
 function umenu()
@@ -248,10 +251,12 @@ function umenu()
 end
 
 function dmenu()
-	rectfill(32, 9, 52, 30, 2)
-	rectfill(33, 10, 50, 17, 12)
-	for i=1, #menutable do
-		print(menutable[i], 34, 5+7*i, 7)
+	if menutoggle then 
+		rectfill(32, 9, 52, 30, 2)
+		rectfill(33, 10, 50, 17, 12)
+		for i=1, #menutable do
+			print(menutable[i], 34, 5+7*i, 7)
+		end
 	end
 end
 __gfx__
