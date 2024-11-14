@@ -248,7 +248,8 @@ function umenu()
 end
 
 function dmenu()
-	rectfill(32, 10, 52, 30, 2)
+	rectfill(32, 9, 52, 30, 2)
+	rectfill(33, 10, 50, 17, 12)
 	for i=1, #menutable do
 		print(menutable[i], 34, 5+7*i, 7)
 	end
