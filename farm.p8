@@ -9,12 +9,14 @@ function _init()
 	iplr()
 	icrops()
 	iinv()
+	imenu()
 end
 
 function _update()
 	uplr()
 	ucrops()
 	uinv()
+	umenu()
 end
 
 function _draw()
@@ -24,6 +26,7 @@ function _draw()
 	dplr()
 	dcrops()
 	dinv()
+	dmenu()
 end
 
 -->8
@@ -231,6 +234,23 @@ function harvest()
 		if i.name == "carrots" then
 			i.amt += 1
 		end
+	end
+end
+-->8
+--menus
+
+function imenu()
+	menutable = {"buy", "sell"}
+end
+
+function umenu()
+	
+end
+
+function dmenu()
+	rectfill(32, 10, 52, 30, 2)
+	for i=1, #menutable do
+		print(menutable[i], 34, 5+7*i, 7)
 	end
 end
 __gfx__
