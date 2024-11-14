@@ -204,6 +204,7 @@ function dinv()
 	spr(18, 71, 117) --carrot
 	spr(19, 81, 117)	--seed
 	spr(18, 91, 117) --carrot
+	rect(40, 116, 50, 125, 10)
 end
 
 function harvest()
